@@ -11,15 +11,15 @@ const[menuOpen,setMenuOpen] = useState(false)
   
    <nav>
     <div className="nav__container">
-      <a href="" className="nav__img__wrapper">
+      <a href="/" className="nav__img__wrapper">
         <img src= {NavLogo} alt="" className="nav__img" />
       </a>
       <div className="nav__links">
-        <a href="#" className="nav__link" onClick={()=>{
+        <a href="/" className="nav__link" onClick={()=>{
           setMenuOpen(false)
         }}>Home
         </a>
-        <a href="#" className="nav__link" onClick={()=>{
+        <a href="/models" className="nav__link" onClick={()=>{
           setMenuOpen(false)
         }}>Vehicle Models
         </a>

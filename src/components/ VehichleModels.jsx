@@ -10,8 +10,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ModelSkeleton from "./ui/ModelSkeleton";
 import axios from "axios";
-const VehicleModels = () => {
-  const [carModels, setCarModel] = useState([]);
+const VehicleModels = ({carModels,setCarModel,setBookingOpen,setSelectedModel}) => {
+ 
 const[sort, setSort]= useState('')
 
 function sortModels(){
@@ -27,17 +27,7 @@ function sortModels(){
    }
 }
 
-  async function fetchModels() {
-    const { data } = await axios.get(
-      `https://car-rental-api.up.railway.app/car`
-    );
-    const models = data.data;
-    setCarModel(models);
-  }
 
-  useEffect(() => {
-    fetchModels();
-  }, []);
 
   useEffect(()=>{
 sortModels();
@@ -77,7 +67,12 @@ sortModels();
           </div>
           <div className="models__list">
             {carModels.length > 0
-              ? carModels.map((model) => <Model model={model} key={model.id} />)
+              ? carModels.map((model) => <Model 
+              model={model} 
+              key={model.id} 
+              setBookingOpen={setBookingOpen} 
+              setSelectedModel={setSelectedModel}
+              />)
               : new Array(20)
                   .fill(0)
                   .map( (_,index) => <ModelSkeleton key={index} />)}
