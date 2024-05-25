@@ -1,22 +1,26 @@
-import Landing from "./components/Landing"
+
 import Nav from "./components/Nav"
 import Features from "./components/Features"
-import Banner from "./components/Banner"
-import Choose from "./components/Chooose"
 import Testimonials from "./components/Testimonials"
+import Home from "./pages/Home"
 import Download from "./components/Download"
 import Footer from "./components/Footer"
+import Models from "./pages/Models"
+import { BrowserRouter as Router,Routes,Route  } from "react-router-dom"
 function App() {
   return (
     <>
-  <Nav/>
-  <Landing/>
-  <Features/>
-  <Banner/>
-  <Choose/>
-  <Testimonials/>
-  <Download/>
+    <Router>
+      <Nav/>
+      <Routes>
+      <Route path="/" element={<Home />}/>
+        <Route path="/models" element={<Models />}/>
+      
+      </Routes>
+  
   <Footer/>
+    </Router>
+  
     </>
   )
 }
